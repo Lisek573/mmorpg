@@ -36,10 +36,6 @@ public class Account {
 		charaList.add(g);
 	}
 
-	public void removeCharacter(int i) {
-		charaList.remove(i);
-	}
-
 	public void removeAllCharacter() {
 		charaList.clear();
 	}
@@ -99,7 +95,7 @@ public class Account {
 		}
 		{
 			if (found == 0)
-				System.out.println("Character "+Name+" not found.");
+				System.out.println("Character " + Name + " not found.");
 		}
 	}
 
@@ -115,7 +111,7 @@ public class Account {
 		}
 		{
 			if (found == 0)
-				System.out.println("Character "+Name+" not found.");
+				System.out.println("Character " + Name + " not found.");
 		}
 	}
 
@@ -132,7 +128,24 @@ public class Account {
 		}
 		{
 			if (found == 0)
-				System.out.println("Character "+Name+" not found.");
+				System.out.println("Character " + Name + " not found.");
+		}
+	}
+	
+	public void removeCharacter(String Name) {
+		int order = 0;
+		int found = 0;
+		for (Character character : charaList) {
+			if (character.getName().equals(Name)) {
+				charaList.remove(order);
+				found++;
+				break;
+			}
+			order++;
+		}
+		{
+			if (found == 0)
+				System.out.println("Character " + Name + " not found.");	
 		}
 	}
 }
