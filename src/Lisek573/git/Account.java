@@ -89,37 +89,50 @@ public class Account {
 
 	public void editLevelJob(String Name, String Job, Integer Level) {
 		int order = 0;
-		for (Character character : charaList) {
-			if (character.getName().equals(Name)) {
-				charaList.set(order, new Character(Name, Job, Level));
-			}
-			order++;
-		}
-	}
-	
-	public void editName(String Name, String newName, String Job, Integer Level) {
-		int order = 0;
-		for (Character character : charaList) {
-			if (character.getName().equals(Name)) {
-				charaList.set(order, new Character(newName, Job, Level));
-			}
-			order++;
-		}
-	}
-	
-	public void searchCharacter(String Name) {
-		int order = 0;
 		int found = 0;
 		for (Character character : charaList) {
 			if (character.getName().equals(Name)) {
-				System.out.println("Character " + character.getName() + " ID is = " + order );
+				charaList.set(order, new Character(Name, Job, Level));
 				found++;
 			}
 			order++;
 		}
 		{
-			if (found==0)
-			System.out.println("Character not found.");
+			if (found == 0)
+				System.out.println("Character "+Name+" not found.");
+		}
+	}
+
+	public void editName(String Name, String newName, String Job, Integer Level) {
+		int order = 0;
+		int found = 0;
+		for (Character character : charaList) {
+			if (character.getName().equals(Name)) {
+				charaList.set(order, new Character(newName, Job, Level));
+				found++;
+			}
+			order++;
+		}
+		{
+			if (found == 0)
+				System.out.println("Character "+Name+" not found.");
+		}
+	}
+
+	public void searchCharacter(String Name) {
+		int order = 0;
+		int found = 0;
+		for (Character character : charaList) {
+			if (character.getName().equals(Name)) {
+				System.out.println("Character " + character.getName()
+						+ " ID is = " + order);
+				found++;
+			}
+			order++;
+		}
+		{
+			if (found == 0)
+				System.out.println("Character "+Name+" not found.");
 		}
 	}
 }
