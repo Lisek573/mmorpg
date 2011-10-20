@@ -20,7 +20,8 @@ public class Account {
 
 	public void printAccount() {
 		spacja();
-		System.out.println("Login: " + Login + "\tSurname: " + Surname + "\tID: " + ID);
+		System.out.println("Login: " + Login + "\tSurname: " + Surname
+				+ "\tID: " + ID);
 		spacja();
 	}
 
@@ -62,7 +63,7 @@ public class Account {
 	public void setSurname(String Surname) {
 		this.Surname = Surname;
 	}
-	
+
 	public String getID() {
 		return Surname;
 	}
@@ -84,5 +85,25 @@ public class Account {
 			System.out.print("*");
 		}
 		System.out.println("*");
+	}
+
+	public void editLevelJob(String Name, String Job, int newLevel) {
+		int order = 0;
+		for (Character character : charaList) {
+			if (character.getName().equals(Name)) {
+				charaList.set(order, new Character(Name, Job, newLevel));
+			}
+			order++;
+		}
+	}
+	
+	public void editName(String Name, String newName, String Job, int Level) {
+		int order = 0;
+		for (Character character : charaList) {
+			if (character.getName().equals(Name)) {
+				charaList.set(order, new Character(newName, Job, Level));
+			}
+			order++;
+		}
 	}
 }

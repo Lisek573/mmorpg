@@ -39,7 +39,6 @@ public class Character {
 
 	public void setLevel(Integer Level) {
 		this.Level = Level;
-
 	}
 
 }

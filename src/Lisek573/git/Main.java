@@ -8,6 +8,8 @@ public class Main {
 		id0001.addCharacter(new Character("Lisek", "Sniper", 94));
 		id0001.addCharacter(new Character("Skybird", "Swordsman", 35));
 		id0001.addCharacter(new Character("Rorona Frixell", "Alchemist", 64));
+		id0001.editLevelJob("Lisek", "Sniper", 95);
+		id0001.editName("Lisek", "Lisek2", "Sniper", 96);
 
 		id0001.printAccount();
 		id0001.printCharacter();
