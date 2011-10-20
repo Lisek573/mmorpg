@@ -87,23 +87,39 @@ public class Account {
 		System.out.println("*");
 	}
 
-	public void editLevelJob(String Name, String Job, int newLevel) {
+	public void editLevelJob(String Name, String Job, Integer Level) {
 		int order = 0;
 		for (Character character : charaList) {
 			if (character.getName().equals(Name)) {
-				charaList.set(order, new Character(Name, Job, newLevel));
+				charaList.set(order, new Character(Name, Job, Level));
 			}
 			order++;
 		}
 	}
 	
-	public void editName(String Name, String newName, String Job, int Level) {
+	public void editName(String Name, String newName, String Job, Integer Level) {
 		int order = 0;
 		for (Character character : charaList) {
 			if (character.getName().equals(Name)) {
 				charaList.set(order, new Character(newName, Job, Level));
 			}
 			order++;
+		}
+	}
+	
+	public void searchCharacter(String Name) {
+		int order = 0;
+		int found = 0;
+		for (Character character : charaList) {
+			if (character.getName().equals(Name)) {
+				System.out.println("Character " + character.getName() + " ID is = " + order );
+				found++;
+			}
+			order++;
+		}
+		{
+			if (found==0)
+			System.out.println("Character not found.");
 		}
 	}
 }
