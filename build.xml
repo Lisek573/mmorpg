@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="mmorpg">
+
+<path id="classpath">
+<fileset dir="bin" includes="**/*.jar">
+</fileset>
+<pathelement location="bin" />
+</path>
+ 
+ 
+
+<target name="compile">
+<mkdir dir="bin"/>
+<javac srcdir="src" destdir="bin" includeantruntime="false"/>
+</target>
+
+
+<target name="jar">
+<mkdir dir="bin/jar"/>
+<jar destfile="bin/jar/mmorpg.jar" basedir="bin">
+<manifest>
+<attribute name="Main-Class" value="Lisek573.git.Main"/>
+</manifest>
+</jar>
+</target>
+
+
+
+<target name="run-jar" depends="jar">
+<java jar="bin/jar/mmorpg.jar" fork="true"/>
+</target>
+
+<target name="clean">
+<delete dir="bin/jar"/>
+</target>
+
+
+<target name="run" depends="compile">
+<java classname="Lisek573.git.Main" classpathref="classpath" />
+</target>
+
+
+</project>
