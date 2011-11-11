@@ -83,69 +83,34 @@ public class Account {
 		System.out.println("*");
 	}
 
-	public void editLevelJob(String Name, String Job, Integer Level) {
-		int order = 0;
-		int found = 0;
+	public Character searchCharacterByName(String Name) {
 		for (Character character : charaList) {
 			if (character.getName().equals(Name)) {
-				charaList.set(order, new Character(Name, Job, Level));
-				found++;
+				return character;
 			}
-			order++;
 		}
-		{
-			if (found == 0)
-				System.out.println("Character " + Name + " not found.");
-		}
-	}
-
-	public void editName(String Name, String newName, String Job, Integer Level) {
-		int order = 0;
-		int found = 0;
-		for (Character character : charaList) {
-			if (character.getName().equals(Name)) {
-				charaList.set(order, new Character(newName, Job, Level));
-				found++;
-			}
-			order++;
-		}
-		{
-			if (found == 0)
-				System.out.println("Character " + Name + " not found.");
-		}
-	}
-
-	public void searchCharacter(String Name) {
-		int order = 0;
-		int found = 0;
-		for (Character character : charaList) {
-			if (character.getName().equals(Name)) {
-				System.out.println("Character " + character.getName()
-						+ " ID is = " + order);
-				found++;
-			}
-			order++;
-		}
-		{
-			if (found == 0)
-				System.out.println("Character " + Name + " not found.");
-		}
+		return null;
 	}
 	
-	public void removeCharacter(String Name) {
-		int order = 0;
-		int found = 0;
-		for (Character character : charaList) {
-			if (character.getName().equals(Name)) {
-				charaList.remove(order);
-				found++;
-				break;
-			}
-			order++;
-		}
-		{
-			if (found == 0)
-				System.out.println("Character " + Name + " not found.");	
-		}
+//	public List<...> searchAllCharacterByName(String Name) {
+		// ...
+//	}
+	
+	public void editName(String Name, String newName) {
+		searchCharacterByName(Name).setName(newName);
 	}
+
+	public void editJob(String Name, String newJob) {
+		searchCharacterByName(Name).setJob(newJob);
+	}
+
+	public void editLevel(String Name, Integer newLevel) {
+		searchCharacterByName(Name).setLevel(newLevel);
+	}
+
+	public void removeCharacter(String Name) {
+		charaList.remove(searchCharacterByName(Name));
+	}
+	
+	
 }
