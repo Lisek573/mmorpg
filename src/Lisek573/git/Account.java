@@ -2,12 +2,18 @@ package Lisek573.git;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 public class Account {
 
-	String Login;
-	String Surname;
-	Integer ID;
+	private PropertyConfigurator logConfig = new PropertyConfigurator();
+	private Logger logger = Logger.getLogger(Account.class);
+
+	public String Login;
+	public String Surname;
+	public Integer ID;
+	
 	List<Character> charaList = new ArrayList<Character>();
 
 	public Account(String Login, String Surname, Integer ID) {
@@ -34,14 +40,18 @@ public class Account {
 
 	public void addCharacter(Character g) {
 		charaList.add(g);
+	    logConfig.configure("Log4J.properties");
+	    logger.info("New character added.");
 	}
 
 	public void removeAllCharacter() {
 		charaList.clear();
+		logger.info("List cleared.");
 	}
 
 	public void editCharacter(String newName, String newClass, Integer newLevel) {
 		charaList.set(0, new Character(newName, newClass, newLevel));
+	    logger.info("Character edited.");
 	}
 
 	public String getLogin() {
@@ -91,11 +101,11 @@ public class Account {
 		}
 		return null;
 	}
-	
-//	public List<...> searchAllCharacterByName(String Name) {
-		// ...
-//	}
-	
+
+	// public List<...> searchAllCharacterByName(String Name) {
+	// ...
+	// }
+
 	public void editName(String Name, String newName) {
 		searchCharacterByName(Name).setName(newName);
 	}
@@ -110,7 +120,7 @@ public class Account {
 
 	public void removeCharacter(String Name) {
 		charaList.remove(searchCharacterByName(Name));
+	    logger.info("Character deleted.");
 	}
-	
-	
+
 }
