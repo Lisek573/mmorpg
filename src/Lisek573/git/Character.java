@@ -2,6 +2,9 @@ package Lisek573.git;
 
 import Lisek573.git.exception.LevelTooLowException;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 public class Character {
 
 	String Name;
@@ -12,15 +15,6 @@ public class Character {
 		this.Name = Name;
 		this.Job = Job;
 		this.Level = Level;
-	}
-	
-	public void addCharacter(String Name, String Job, Integer Level) throws LevelTooLowException {
-		if (Level > 0) {
-	//		character.add(new Character(Name, Job, Level);
-	//		logger.info("Dodano nowy produkt " + Name + "||Cena: " + Level);
-		}
-		else
-			throw new LevelTooLowException("blah");
 	}
 
 	public void printCharacter() {

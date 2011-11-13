@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import Lisek573.git.exception.LevelTooLowException;
+
 public class Account {
 
 	private PropertyConfigurator logConfig = new PropertyConfigurator();
@@ -13,7 +15,7 @@ public class Account {
 	public String Login;
 	public String Surname;
 	public Integer ID;
-	
+
 	List<Character> charaList = new ArrayList<Character>();
 
 	public Account(String Login, String Surname, Integer ID) {
@@ -38,10 +40,17 @@ public class Account {
 
 	}
 
-	public void addCharacter(Character g) {
-		charaList.add(g);
-	    logConfig.configure("Log4J.properties");
-	    logger.info("New character added.");
+	public void addCharacter(Character g) throws LevelTooLowException {
+		int Level = g.getLevel();
+		if (Level > 0) {
+			charaList.add(g);
+			logConfig.configure("Log4J.properties");
+			logger.info("New character added.");
+		} else {
+			logger.info("Cannot add character with level below 0.");
+			throw new LevelTooLowException(
+					"Cannot add character. Level is too low. Please set above level 0.");
+		}
 	}
 
 	public void removeAllCharacter() {
@@ -51,7 +60,7 @@ public class Account {
 
 	public void editCharacter(String newName, String newClass, Integer newLevel) {
 		charaList.set(0, new Character(newName, newClass, newLevel));
-	    logger.info("Character edited.");
+		logger.info("Character edited.");
 	}
 
 	public String getLogin() {
@@ -114,13 +123,20 @@ public class Account {
 		searchCharacterByName(Name).setJob(newJob);
 	}
 
-	public void editLevel(String Name, Integer newLevel) {
-		searchCharacterByName(Name).setLevel(newLevel);
+	public void editLevel(String Name, Integer newLevel)
+			throws LevelTooLowException {
+		if (newLevel > 0)
+			searchCharacterByName(Name).setLevel(newLevel);
+		else {
+			logger.info("Level edit failed.");
+			throw new LevelTooLowException(
+					"Level is too low. Please set above level 0.");
+		}
 	}
 
 	public void removeCharacter(String Name) {
 		charaList.remove(searchCharacterByName(Name));
-	    logger.info("Character deleted.");
+		logger.info("Character deleted.");
 	}
 
 }
