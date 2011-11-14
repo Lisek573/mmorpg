@@ -58,11 +58,6 @@ public class Account {
 		logger.info("List cleared.");
 	}
 
-	public void editCharacter(String newName, String newClass, Integer newLevel) {
-		charaList.set(0, new Character(newName, newClass, newLevel));
-		logger.info("Character edited.");
-	}
-
 	public String getLogin() {
 		return Login;
 	}
