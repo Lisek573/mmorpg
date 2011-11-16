@@ -5,7 +5,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import Lisek573.git.CharacterJobs.Jobs;
 import Lisek573.git.exception.LevelTooLowException;
+import Lisek573.git.exception.NameCannotBeSameException;
 
 public class Account {
 
@@ -16,7 +18,7 @@ public class Account {
 	public String Surname;
 	public Integer ID;
 
-	List<Character> charaList = new ArrayList<Character>();
+	public List<Character> charaList = new ArrayList<Character>();
 
 	public Account(String Login, String Surname, Integer ID) {
 
@@ -34,17 +36,17 @@ public class Account {
 	}
 
 	public void printCharacter() {
-		for (Character g : charaList) {
-			g.printCharacter();
+		for (Character Cha : charaList) {
+			Cha.printCharacter();
 		}
 
 	}
 
-	public void addCharacter(Character g) throws LevelTooLowException {
-		int Level = g.getLevel();
+	public void addCharacter(Character Cha) throws LevelTooLowException, NameCannotBeSameException {
+		int Level = Cha.getLevel();
 		if (Level > 0) {
-			charaList.add(g);
-			logConfig.configure("Log4J.properties");
+			charaList.add(Cha);
+			PropertyConfigurator.configure("Log4J.properties");
 			logger.info("New character added.");
 		} else {
 			logger.info("Cannot add character with level below 0.");
@@ -106,15 +108,20 @@ public class Account {
 		return null;
 	}
 
-	// public List<...> searchAllCharacterByName(String Name) {
-	// ...
-	// }
+/*	public List searchAllCharacterByJobs(Jobs Job) {
+	for (Character character : charaList) {
+		if (character.getJob().equals(Job)){
+			return character;
+		}
+	}
+	return null;
+	 }*/
 
 	public void editName(String Name, String newName) {
 		searchCharacterByName(Name).setName(newName);
 	}
 
-	public void editJob(String Name, String newJob) {
+	public void editJob(String Name, Jobs newJob) {
 		searchCharacterByName(Name).setJob(newJob);
 	}
 
@@ -129,9 +136,17 @@ public class Account {
 		}
 	}
 
-	public void removeCharacter(String Name) {
-		charaList.remove(searchCharacterByName(Name));
+	public void removeCharacter(Character c) {
+		charaList.remove(c);
 		logger.info("Character deleted.");
+	}
+
+	public PropertyConfigurator getLogConfig() {
+		return logConfig;
+	}
+
+	public void setLogConfig(PropertyConfigurator logConfig) {
+		this.logConfig = logConfig;
 	}
 
 }

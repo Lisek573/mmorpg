@@ -8,15 +8,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import Lisek573.*;
-import Lisek573.git.Account;
 import Lisek573.git.Character;
-import Lisek573.git.exception.LevelTooLowException;
+import Lisek573.git.CharacterJobs.Jobs;
 
 public class CharacterTest {
 	
-	private Account l = new Account("lisek573", "Tomaszewski", 0001);
-	private Character a = (new Character("Lisek", "Sniper", 94));
+	// private Account Acc = new Account("lisek573", "Tomaszewski", 0001);
+	private Character Cha = (new Character("Lisek", Jobs.Sniper, 94));
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -36,35 +34,35 @@ public class CharacterTest {
 
 	@Test
 	public void testGetName() {
-		assertTrue(a.getName().equals("Lisek"));
+		assertTrue(Cha.getName().equals("Lisek"));
 	}
 
 	@Test
 	public void testGetJob() {
-		assertTrue(a.getJob().equals("Sniper"));
+		assertTrue(Cha.getJob().equals(Jobs.Sniper));
 	}
 
 	@Test
 	public void testGetLevel() {
-		assertTrue(a.getLevel().equals(94));
+		assertTrue(Cha.getLevel().equals(94));
 	}
 
 	@Test
 	public void testSetName() {
-		a.setName("Abc");
-		assertTrue(a.getName().equals("Abc"));
+		Cha.setName("Abc");
+		assertTrue(Cha.getName().equals("Abc"));
 	}
 
 	@Test
 	public void testSetJob() {
-		a.setJob("Abc");
-		assertTrue(a.getJob().equals("Abc"));
+		Cha.setJob(Jobs.Alchemist);
+		assertTrue(Cha.getJob().equals(Jobs.Alchemist));
 	}
 
 	@Test
 	public void testSetLevel() {
-		a.setLevel(55);
-		assertTrue(a.getLevel().equals(55));
+		Cha.setLevel(55);
+		assertTrue(Cha.getLevel().equals(55));
 	}
 
 }

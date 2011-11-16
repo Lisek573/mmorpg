@@ -1,21 +1,19 @@
 package Lisek573.git;
 
-import Lisek573.git.exception.LevelTooLowException;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import Lisek573.git.CharacterJobs.Jobs;
 
 public class Character {
 
 	String Name;
-	String Job;
+	Jobs Job;
 	Integer Level;
 
-	public Character(String Name, String Job, Integer Level) {
+	public Character(String Name, Jobs Job, Integer Level) {
 		this.Name = Name;
 		this.Job = Job;
 		this.Level = Level;
 	}
+
 
 	public void printCharacter() {
 		System.out.println("Name: " + this.Name + "\t** Level: " + this.Level
@@ -26,7 +24,7 @@ public class Character {
 		return Name;
 	}
 
-	public String getJob() {
+	public Jobs getJob() {
 		return Job;
 	}
 
@@ -38,7 +36,7 @@ public class Character {
 		this.Name = Name;
 	}
 
-	public void setJob(String Job) {
+	public void setJob(Jobs Job) {
 		this.Job = Job;
 	}
 
