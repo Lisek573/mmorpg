@@ -8,7 +8,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import Lisek573.*;
+import Lisek573.git.Account;
+import Lisek573.git.Character;
+import Lisek573.git.exception.LevelTooLowException;
+
 public class CharacterTest {
+	
+	private Account l = new Account("lisek573", "Tomaszewski", 0001);
+	private Character a = (new Character("Lisek", "Sniper", 94));
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,43 +35,36 @@ public class CharacterTest {
 	}
 
 	@Test
-	public void testCharacter() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testPrintCharacter() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertTrue(a.getName().equals("Lisek"));
 	}
 
 	@Test
 	public void testGetJob() {
-		fail("Not yet implemented");
+		assertTrue(a.getJob().equals("Sniper"));
 	}
 
 	@Test
 	public void testGetLevel() {
-		fail("Not yet implemented");
+		assertTrue(a.getLevel().equals(94));
 	}
 
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented");
+		a.setName("Abc");
+		assertTrue(a.getName().equals("Abc"));
 	}
 
 	@Test
 	public void testSetJob() {
-		fail("Not yet implemented");
+		a.setJob("Abc");
+		assertTrue(a.getJob().equals("Abc"));
 	}
 
 	@Test
 	public void testSetLevel() {
-		fail("Not yet implemented");
+		a.setLevel(55);
+		assertTrue(a.getLevel().equals(55));
 	}
 
 }
