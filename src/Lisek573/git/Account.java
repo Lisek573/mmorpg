@@ -18,14 +18,14 @@ public class Account {
 	public String Surname;
 	public Integer ID;
 
-	public List<Character> charaList = new ArrayList<Character>();
+	public static List<Character> charaList = new ArrayList<Character>();
 
 	public Account(String Login, String Surname, Integer ID) {
 
 		this.Login = Login;
 		this.Surname = Surname;
 		this.ID = ID;
-		this.charaList = new ArrayList<Character>();
+		Account.charaList = new ArrayList<Character>();
 	}
 
 	public void printAccount() {
@@ -86,7 +86,7 @@ public class Account {
 	}
 
 	public void setcharaList(List<Character> charaList) {
-		this.charaList = charaList;
+		Account.charaList = charaList;
 	}
 
 	public static void spacja() {
@@ -160,12 +160,12 @@ public class Account {
 		this.logConfig = logConfig;
 	}
 
-	public List<Character> getCharaList() {
+	public static List<Character> getCharaList() {
 		return charaList;
 	}
 
 	public void setCharaList(List<Character> charaList) {
-		this.charaList = charaList;
+		Account.charaList = charaList;
 	}
 
 }

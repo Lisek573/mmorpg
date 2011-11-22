@@ -2,6 +2,7 @@ package Lisek573.git.events;
 
 import java.util.EventObject;
 
+import Lisek573.git.Account;
 import Lisek573.git.Character;
 
 public class CharacterEvent extends EventObject {
@@ -32,9 +33,16 @@ public class CharacterEvent extends EventObject {
 
 		public void processCharacter(CharacterEvent Event) {
 
-			if (Event.getCharacter().getVip())
+			if (Event.getCharacter().getVip() == true) {
+				Account.getCharaList().get(0).setVip(false);
 				System.out.println(Event.getCharacter().getName()
-						+ " vip status changed.");
+						+ " vip status changed to false.");
+			} else {
+				Account.getCharaList().get(0).setVip(true);
+				System.out.println(Event.getCharacter().getName()
+						+ " vip status changed to true.");
+			}
+
 		}
 
 	}

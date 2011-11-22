@@ -36,51 +36,51 @@ public class CharacterTest {
 
 	@Test
 	public void testCharacter() {
-		assertTrue(id0001.getCharaList().size() > 0);
+		assertTrue(Account.getCharaList().size() > 0);
 	}
 
 	@Test
 	public void testGetName() {
-		assertTrue(id0001.getCharaList().get(0).getName() == "Lisek");
+		assertTrue(Account.getCharaList().get(0).getName() == "Lisek");
 	}
 
 	@Test
 	public void testGetJob() {
-		assertTrue(id0001.getCharaList().get(0).getJob() == Jobs.Sniper);
+		assertTrue(Account.getCharaList().get(0).getJob() == Jobs.Sniper);
 	}
 
 	@Test
 	public void testGetLevel() {
-		assertSame(id0001.getCharaList().get(0).getLevel(), 94);
+		assertSame(Account.getCharaList().get(0).getLevel(), 94);
 	}
 
 	@Test
 	public void testSetName() {
-		id0001.getCharaList().get(0).setName("Lisek2");
-		assertTrue(id0001.getCharaList().get(0).getName() == "Lisek2");
+		Account.getCharaList().get(0).setName("Lisek2");
+		assertTrue(Account.getCharaList().get(0).getName() == "Lisek2");
 	}
 
 	@Test
 	public void testSetJob() {
-		id0001.getCharaList().get(0).setJob(Jobs.Priest);
-		assertEquals(id0001.getCharaList().get(0).getJob(), Jobs.Priest);
+		Account.getCharaList().get(0).setJob(Jobs.Priest);
+		assertEquals(Account.getCharaList().get(0).getJob(), Jobs.Priest);
 	}
 
 	@Test
 	public void testSetLevel() {
-		id0001.getCharaList().get(0).setLevel(2);
-		assertSame(id0001.getCharaList().get(0).getLevel(), 2);
+		Account.getCharaList().get(0).setLevel(2);
+		assertSame(Account.getCharaList().get(0).getLevel(), 2);
 	}
 
 	@Test
 	public void testSetVip() {
-		id0001.getCharaList().get(0).setVip(true);
-		assertSame(id0001.getCharaList().get(0).getVip(), true);
+		Account.getCharaList().get(0).setVip(true);
+		assertSame(Account.getCharaList().get(0).getVip(), true);
 	}
 
 	@Test
 	public void testGetVip() {
-		assertSame(id0001.getCharaList().get(0).getVip(), false);
+		assertSame(Account.getCharaList().get(0).getVip(), false);
 	}
 
 }

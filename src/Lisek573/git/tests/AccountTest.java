@@ -44,19 +44,19 @@ public class AccountTest {
 			NameCannotBeSameException {
 		Account id0002 = new Account("lisek5734", "Tomaszewskii", 0002);
 		id0002.addCharacter(new Character("Lisek", Jobs.Sniper, 94));
-		assertTrue(id0002.getCharaList().size() == 1);
+		assertTrue(Account.getCharaList().size() == 1);
 		assertTrue(id0002.getLogin().equals("lisek5734"));
 	}
 
 	@Test
 	public void testAddCharacter() {
-		assertSame(1, id0001.getCharaList().size());
+		assertSame(1, Account.getCharaList().size());
 	}
 
 	@Test
 	public void testRemoveAllCharacter() {
 		id0001.removeAllCharacter();
-		assertTrue(id0001.getCharaList().size() == 0);
+		assertTrue(Account.getCharaList().size() == 0);
 	}
 
 	@Test
@@ -94,7 +94,7 @@ public class AccountTest {
 
 	@Test
 	public void testGetCharaList() {
-		assertNotNull(id0001.getCharaList());
+		assertNotNull(Account.getCharaList());
 	}
 
 	@Test
@@ -107,19 +107,19 @@ public class AccountTest {
 
 	@Test
 	public void testFindAllCharacterByName() {
-		assertSame(id0001.getCharaList().get(0),
-				id0001.findAllCharacterByName("Lisek").get(0));
+		assertSame(Account.getCharaList().get(0), id0001
+				.findAllCharacterByName("Lisek").get(0));
 	}
 
 	@Test
 	public void testFindAllCharacterByJobs() {
-		assertSame(id0001.getCharaList().get(0),
-				id0001.findAllCharacterByJobs(Jobs.Sniper).get(0));
+		assertSame(Account.getCharaList().get(0), id0001
+				.findAllCharacterByJobs(Jobs.Sniper).get(0));
 	}
 
 	@Test
 	public void testFindAllGameByLevel() {
-		assertSame(id0001.getCharaList().get(0), id0001
+		assertSame(Account.getCharaList().get(0), id0001
 				.findAllCharacterByLevel(94).get(0));
 	}
 
@@ -127,19 +127,19 @@ public class AccountTest {
 	public void testEditJob() {
 		id0001.editJob(id0001.findAllCharacterByJobs(Jobs.Sniper),
 				Jobs.Alchemist);
-		assertTrue(id0001.getCharaList().get(0).getJob() == Jobs.Alchemist);
+		assertTrue(Account.getCharaList().get(0).getJob() == Jobs.Alchemist);
 	}
 
 	@Test
 	public void testEditLevel() throws LevelTooLowException {
 		id0001.editLevel(id0001.findAllCharacterByLevel(94), 95);
-		assertTrue(id0001.getCharaList().get(0).getLevel() == 95);
+		assertTrue(Account.getCharaList().get(0).getLevel() == 95);
 	}
 
 	@Test
 	public void testRemoveCharacter() {
-		id0001.removeCharacter(id0001.getCharaList().get(0));
-		assertTrue(id0001.getCharaList().size() == 0);
+		id0001.removeCharacter(Account.getCharaList().get(0));
+		assertTrue(Account.getCharaList().size() == 0);
 	}
 
 }
