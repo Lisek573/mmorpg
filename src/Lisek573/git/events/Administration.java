@@ -42,26 +42,6 @@ public class Administration {
 
 	}
 
-	public static class RemoveCharacterBuffs implements iCharacterProcesses {
-
-		public void processCharacter(CharacterEvent Event) {
-			System.out.println(Event.getCharacter().getName()
-					+ " character buffs has been removed.");
-		}
-
-	}
-
-	public static class ChangeVipStatus implements iCharacterProcesses {
-
-		public void processCharacter(CharacterEvent Event) {
-
-			if (Event.getCharacter().getVip(false))
-				System.out.println(Event.getCharacter().getName()
-						+ " vip status changed.");
-		}
-
-	}
-
 	public static class BonusLevel implements iCharacterProcesses {
 
 		public void processCharacter(CharacterEvent Event)
@@ -69,7 +49,7 @@ public class Administration {
 			System.out.println(Event.getCharacter().getName()
 					+ " level changed.");
 			int l = Event.getCharacter().getLevel();
-			l = 2 * l;
+			l = l + 100;
 			Event.getCharacter().setLevel(l);
 		}
 	}
@@ -81,7 +61,7 @@ public class Administration {
 			System.out.println(Event.getCharacter().getName()
 					+ " level changed.");
 			int l = Event.getCharacter().getLevel();
-			l = l / 2;
+			l = l - 100;
 			Event.getCharacter().setLevel(l);
 		}
 	}

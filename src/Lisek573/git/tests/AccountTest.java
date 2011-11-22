@@ -11,14 +11,10 @@ import org.junit.Test;
 import Lisek573.git.Account;
 import Lisek573.git.Character;
 import Lisek573.git.CharacterJobs.Jobs;
-import Lisek573.git.exception.LevelTooLowException;
-import Lisek573.git.exception.NameCannotBeSameException;
 
 public class AccountTest {
 
-	private Account Acc = new Account("lisek573", "Tomaszewski", 0001);
-	private Character Cha = (new Character("Lisek", Jobs.Sniper, 94));
-	private Character Cha1 = (new Character("Lisek2321", Jobs.Alchemist, 94));
+	Account id0001 = new Account("lisek573", "Tomaszewski", 0001);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -30,53 +26,112 @@ public class AccountTest {
 
 	@Before
 	public void setUp() throws Exception {
+		id0001.addCharacter(new Character("Lisek", Jobs.Sniper, 94));
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		id0001.removeAllCharacter();
 	}
 
 	@Test
-	public void testAddCharacter() throws LevelTooLowException,
-			NameCannotBeSameException {
-		Acc.addCharacter(Cha);
-		assertTrue(Acc.charaList.size() > 0);
+	public void testAccount() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAddCharacter() {
+		assertSame(1, id0001.getCharaList().size());
 	}
 
 	@Test
 	public void testRemoveAllCharacter() {
-		Acc.removeAllCharacter();
-		assertTrue(Acc.charaList.size() <= 0);
+		id0001.removeAllCharacter();
+		assertTrue(id0001.getCharaList().size() == 0);
 	}
 
 	@Test
-	public void testSearchCharacterByName() {
-		Acc.searchCharacterByName("Lisek");
+	public void testGetLogin() {
+		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testEditName() {
-		Acc.editName("Lisek", "Lisek2");
-		assertTrue(Cha.getName() == "Lisek2");
+	public void testSetLogin() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetSurname() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetSurname() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetID() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetID() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetcharaList() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetcharaList() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testFindAllGameByName() {
+		assertSame(id0001.getCharaList().get(0),
+				id0001.findAllGameByName("Lisek").get(0));
+	}
+
+	@Test
+	public void testFindAllGameByJobs() {
+		assertSame(id0001.getCharaList().get(0),
+				id0001.findAllGameByJobs(Jobs.Sniper).get(0));
+	}
+
+	@Test
+	public void testFindAllGameByLevel() {
+		assertSame(id0001.getCharaList().get(0), id0001.findAllGameByLevel(94)
+				.get(0));
 	}
 
 	@Test
 	public void testEditJob() {
-		Acc.editJob("Lisek", Jobs.Alchemist);
-		assertEquals(Cha.getJob(), Jobs.Alchemist);
+		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testEditLevel() throws LevelTooLowException {
-		Acc.editLevel("Lisek", 5);
-		Acc.editLevel("Lisek2321", 5);
-		assertEquals(Cha.getLevel(), Cha1.getLevel());
+	public void testEditLevel() {
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testRemoveCharacter() {
-		Acc.removeCharacter(Cha);
-		assertTrue(Cha.getName() != "Lisek");
+		id0001.removeCharacter(id0001.getCharaList().get(0));
+		assertTrue(id0001.getCharaList().size() == 0);
+	}
+
+	@Test
+	public void testGetCharaList() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetCharaList() {
+		fail("Not yet implemented");
 	}
 
 }

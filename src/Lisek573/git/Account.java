@@ -85,10 +85,6 @@ public class Account {
 		this.ID = ID;
 	}
 
-	public List<Character> getcharaList() {
-		return charaList;
-	}
-
 	public void setcharaList(List<Character> charaList) {
 		this.charaList = charaList;
 	}
@@ -100,38 +96,55 @@ public class Account {
 		System.out.println("*");
 	}
 
-	public Character searchCharacterByName(String Name) {
+	public List<Character> findAllGameByName(String Name) {
+		List<Character> results = new ArrayList<Character>();
 		for (Character character : charaList) {
 			if (character.getName().equals(Name)) {
-				return character;
+				results.add(character);
 			}
 		}
-		return null;
+		return results;
 	}
 
-	/*
-	 * public List searchAllCharacterByJobs(Jobs Job) { for (Character character
-	 * : charaList) { if (character.getJob().equals(Job)){ return character; } }
-	 * return null; }
-	 */
-
-	public void editName(String Name, String newName) {
-		searchCharacterByName(Name).setName(newName);
-	}
-
-	public void editJob(String Name, Jobs newJob) {
-		searchCharacterByName(Name).setJob(newJob);
-	}
-
-	public void editLevel(String Name, Integer newLevel)
-			throws LevelTooLowException {
-		if (newLevel > 0)
-			searchCharacterByName(Name).setLevel(newLevel);
-		else {
-			logger.info("Level edit failed.");
-			throw new LevelTooLowException(
-					"Level is too low. Please set above level 0.");
+	public List<Character> findAllGameByJobs(Jobs jobs) {
+		List<Character> results = new ArrayList<Character>();
+		for (Character character : charaList) {
+			if (character.getJob().equals(jobs)) {
+				results.add(character);
+			}
 		}
+		return results;
+	}
+
+	public List<Character> findAllGameByLevel(Integer Level) {
+		List<Character> results = new ArrayList<Character>();
+		for (Character character : charaList) {
+			if (character.getLevel().equals(Level)) {
+				results.add(character);
+			}
+		}
+		return results;
+	}
+
+	public void editJob(List<Character> list, Jobs jobs) {
+		for (Character character : list) {
+			character.setJob(jobs);
+			logger.info("Job changed for " + character.getName()
+					+ "** new job: " + jobs);
+		}
+	}
+
+	public void editLevel(List<Character> list, Integer Level)
+			throws LevelTooLowException {
+		if (Level > 0) {
+			for (Character character : list) {
+				character.setLevel(Level);
+				logger.info("Level changed for " + character.getName()
+						+ "** new level: " + Level);
+			}
+		}
+		if (Level <= 0)
+			throw new LevelTooLowException("Level cannot be lower than 0");
 	}
 
 	public void removeCharacter(Character c) {
@@ -145,6 +158,14 @@ public class Account {
 
 	public void setLogConfig(PropertyConfigurator logConfig) {
 		this.logConfig = logConfig;
+	}
+
+	public List<Character> getCharaList() {
+		return charaList;
+	}
+
+	public void setCharaList(List<Character> charaList) {
+		this.charaList = charaList;
 	}
 
 }

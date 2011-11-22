@@ -8,13 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import Lisek573.git.Character;
-import Lisek573.git.CharacterJobs.Jobs;
-
 public class CharacterTest {
-
-	// private Account Acc = new Account("lisek573", "Tomaszewski", 0001);
-	private Character Cha = (new Character("Lisek", Jobs.Sniper, 94));
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -33,36 +27,53 @@ public class CharacterTest {
 	}
 
 	@Test
+	public void testCharacter() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPrintCharacter() {
+		fail("Not yet implemented");
+	}
+
+	@Test
 	public void testGetName() {
-		assertTrue(Cha.getName().equals("Lisek"));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetJob() {
-		assertTrue(Cha.getJob().equals(Jobs.Sniper));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetLevel() {
-		assertTrue(Cha.getLevel().equals(94));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSetName() {
-		Cha.setName("Abc");
-		assertTrue(Cha.getName().equals("Abc"));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSetJob() {
-		Cha.setJob(Jobs.Alchemist);
-		assertTrue(Cha.getJob().equals(Jobs.Alchemist));
+		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSetLevel() {
-		Cha.setLevel(55);
-		assertTrue(Cha.getLevel().equals(55));
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetVip() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetVip() {
+		fail("Not yet implemented");
 	}
 
 }
