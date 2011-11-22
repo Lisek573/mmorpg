@@ -77,8 +77,8 @@ public class Account {
 		this.Surname = Surname;
 	}
 
-	public String getID() {
-		return Surname;
+	public Integer getID() {
+		return ID;
 	}
 
 	public void setID(Integer ID) {
@@ -96,7 +96,7 @@ public class Account {
 		System.out.println("*");
 	}
 
-	public List<Character> findAllGameByName(String Name) {
+	public List<Character> findAllCharacterByName(String Name) {
 		List<Character> results = new ArrayList<Character>();
 		for (Character character : charaList) {
 			if (character.getName().equals(Name)) {
@@ -106,7 +106,7 @@ public class Account {
 		return results;
 	}
 
-	public List<Character> findAllGameByJobs(Jobs jobs) {
+	public List<Character> findAllCharacterByJobs(Jobs jobs) {
 		List<Character> results = new ArrayList<Character>();
 		for (Character character : charaList) {
 			if (character.getJob().equals(jobs)) {
@@ -116,7 +116,7 @@ public class Account {
 		return results;
 	}
 
-	public List<Character> findAllGameByLevel(Integer Level) {
+	public List<Character> findAllCharacterByLevel(Integer Level) {
 		List<Character> results = new ArrayList<Character>();
 		for (Character character : charaList) {
 			if (character.getLevel().equals(Level)) {

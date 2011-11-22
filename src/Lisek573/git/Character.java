@@ -44,12 +44,12 @@ public class Character {
 		this.Level = Level;
 	}
 
-	public void setVip() {
-		this.vip = false;
+	public void setVip(boolean vip) {
+		this.vip = vip;
 
 	}
 
-	public boolean getVip(boolean vip) {
+	public boolean getVip() {
 		return this.vip = vip;
 
 	}
