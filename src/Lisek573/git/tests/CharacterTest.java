@@ -14,10 +14,8 @@ import Lisek573.git.CharacterJobs.Jobs;
 
 public class CharacterTest {
 
-	
 	Account id0001 = new Account("lisek573", "Tomaszewski", 0001);
-	
-	
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -38,17 +36,17 @@ public class CharacterTest {
 
 	@Test
 	public void testCharacter() {
-		assertTrue(id0001.getCharaList().size()>0);
+		assertTrue(id0001.getCharaList().size() > 0);
 	}
 
 	@Test
 	public void testGetName() {
-		assertTrue(id0001.getCharaList().get(0).getName()=="Lisek");
+		assertTrue(id0001.getCharaList().get(0).getName() == "Lisek");
 	}
 
 	@Test
 	public void testGetJob() {
-		assertTrue(id0001.getCharaList().get(0).getJob()==Jobs.Sniper);
+		assertTrue(id0001.getCharaList().get(0).getJob() == Jobs.Sniper);
 	}
 
 	@Test
@@ -59,7 +57,7 @@ public class CharacterTest {
 	@Test
 	public void testSetName() {
 		id0001.getCharaList().get(0).setName("Lisek2");
-		assertTrue(id0001.getCharaList().get(0).getName()=="Lisek2");
+		assertTrue(id0001.getCharaList().get(0).getName() == "Lisek2");
 	}
 
 	@Test

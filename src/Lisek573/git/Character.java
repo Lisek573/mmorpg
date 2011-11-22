@@ -50,7 +50,7 @@ public class Character {
 	}
 
 	public boolean getVip() {
-		return this.vip = vip;
+		return vip;
 
 	}
 }

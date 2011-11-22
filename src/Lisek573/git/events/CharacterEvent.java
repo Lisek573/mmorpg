@@ -32,7 +32,7 @@ public class CharacterEvent extends EventObject {
 
 		public void processCharacter(CharacterEvent Event) {
 
-			if (Event.getCharacter().getVip(false))
+			if (Event.getCharacter().getVip())
 				System.out.println(Event.getCharacter().getName()
 						+ " vip status changed.");
 		}
