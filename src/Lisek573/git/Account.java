@@ -36,17 +36,17 @@ public class Account {
 	}
 
 	public void printCharacter() {
-		for (Character Cha : charaList) {
-			Cha.printCharacter();
+		for (Character cha : charaList) {
+			cha.printCharacter();
 		}
 
 	}
 
-	public void addCharacter(Character Cha) throws LevelTooLowException,
+	public void addCharacter(Character cha) throws LevelTooLowException,
 			NameCannotBeSameException {
-		int Level = Cha.getLevel();
+		int Level = cha.getLevel();
 		if (Level > 0) {
-			charaList.add(Cha);
+			charaList.add(cha);
 			PropertyConfigurator.configure("Log4J.properties");
 			logger.info("New character added.");
 		} else {
