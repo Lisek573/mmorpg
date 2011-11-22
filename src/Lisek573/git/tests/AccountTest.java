@@ -37,7 +37,8 @@ public class AccountTest {
 	}
 
 	@Test
-	public void testAddCharacter() throws LevelTooLowException, NameCannotBeSameException {
+	public void testAddCharacter() throws LevelTooLowException,
+			NameCannotBeSameException {
 		Acc.addCharacter(Cha);
 		assertTrue(Acc.charaList.size() > 0);
 	}
@@ -45,7 +46,7 @@ public class AccountTest {
 	@Test
 	public void testRemoveAllCharacter() {
 		Acc.removeAllCharacter();
-		assertTrue(Acc.charaList.size()<=0);
+		assertTrue(Acc.charaList.size() <= 0);
 	}
 
 	@Test
@@ -62,20 +63,20 @@ public class AccountTest {
 	@Test
 	public void testEditJob() {
 		Acc.editJob("Lisek", Jobs.Alchemist);
-		assertEquals(Cha.getJob(),Jobs.Alchemist);
+		assertEquals(Cha.getJob(), Jobs.Alchemist);
 	}
 
 	@Test
 	public void testEditLevel() throws LevelTooLowException {
 		Acc.editLevel("Lisek", 5);
 		Acc.editLevel("Lisek2321", 5);
-		assertEquals(Cha.getLevel(),Cha1.getLevel());
+		assertEquals(Cha.getLevel(), Cha1.getLevel());
 	}
 
 	@Test
 	public void testRemoveCharacter() {
 		Acc.removeCharacter(Cha);
-		assertTrue(Cha.getName()!="Lisek");
+		assertTrue(Cha.getName() != "Lisek");
 	}
 
 }

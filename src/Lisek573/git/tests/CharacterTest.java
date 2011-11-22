@@ -12,10 +12,10 @@ import Lisek573.git.Character;
 import Lisek573.git.CharacterJobs.Jobs;
 
 public class CharacterTest {
-	
+
 	// private Account Acc = new Account("lisek573", "Tomaszewski", 0001);
 	private Character Cha = (new Character("Lisek", Jobs.Sniper, 94));
-	
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}

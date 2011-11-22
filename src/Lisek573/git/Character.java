@@ -7,13 +7,13 @@ public class Character {
 	String Name;
 	Jobs Job;
 	Integer Level;
+	boolean vip;
 
 	public Character(String Name, Jobs Job, Integer Level) {
 		this.Name = Name;
 		this.Job = Job;
 		this.Level = Level;
 	}
-
 
 	public void printCharacter() {
 		System.out.println("Name: " + this.Name + "\t** Level: " + this.Level
@@ -44,4 +44,13 @@ public class Character {
 		this.Level = Level;
 	}
 
+	public void setVip() {
+		this.vip = false;
+
+	}
+
+	public boolean getVip(boolean vip) {
+		return this.vip = vip;
+
+	}
 }

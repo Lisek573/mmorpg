@@ -42,7 +42,8 @@ public class Account {
 
 	}
 
-	public void addCharacter(Character Cha) throws LevelTooLowException, NameCannotBeSameException {
+	public void addCharacter(Character Cha) throws LevelTooLowException,
+			NameCannotBeSameException {
 		int Level = Cha.getLevel();
 		if (Level > 0) {
 			charaList.add(Cha);
@@ -108,14 +109,11 @@ public class Account {
 		return null;
 	}
 
-/*	public List searchAllCharacterByJobs(Jobs Job) {
-	for (Character character : charaList) {
-		if (character.getJob().equals(Job)){
-			return character;
-		}
-	}
-	return null;
-	 }*/
+	/*
+	 * public List searchAllCharacterByJobs(Jobs Job) { for (Character character
+	 * : charaList) { if (character.getJob().equals(Job)){ return character; } }
+	 * return null; }
+	 */
 
 	public void editName(String Name, String newName) {
 		searchCharacterByName(Name).setName(newName);
